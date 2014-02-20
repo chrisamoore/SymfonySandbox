@@ -8,3 +8,5 @@ vhosts/gearman/*
 !vhosts/gearman/.gitkeep
 logs/*
 *.log
+
+Symfony/*

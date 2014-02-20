@@ -655,8 +655,8 @@ class setup {
     }
 
     exec {'composer_install':
-        cwd => '/usr/share/nginx/www/html/Symfony',
-        command => 'composer create-project symfony/framework-standard-edition /vagrant/Symfony 2.3.* -vvvv',
+        cwd => '/usr/share/nginx/www/html/',
+        command => 'composer create-project symfony/framework-standard-edition /vagrant/Symfony -vvvv',
         path => ['/usr/local/bin','/usr/bin', '/bin', '/sbin'],
         environment =>
         [
@@ -782,6 +782,7 @@ class ohmyzsh {
         creates => "/home/vagrant/.oh-my-zsh",
         command => "/usr/bin/git clone git://github.com/robbyrussell/oh-my-zsh.git /home/vagrant/.oh-my-zsh",
         user    => vagrant,
+        returns => [ 0, 1, 255, 128 ],
         require => Package['zsh']
     }
 
@@ -790,6 +791,7 @@ class ohmyzsh {
         command => "cp -ir /vagrant/files/custom/cam.zsh-theme ./themes/cam.zsh-theme",
         path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
         require => Exec['ohmyzsh::git clone'],
+        returns => [ 0, 1, 255, 128 ],
     }
 }
 
