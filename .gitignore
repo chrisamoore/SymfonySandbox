@@ -1,6 +1,6 @@
 .vagrant/
 .idea/
-Symfony/vendor/
+Symfony/*
 Symfony/web/uploads/*
 vhosts/codequality/*
 !vhosts/codequality/.gitkeep
@@ -9,4 +9,3 @@ vhosts/gearman/*
 logs/*
 *.log
 
-Symfony/*
